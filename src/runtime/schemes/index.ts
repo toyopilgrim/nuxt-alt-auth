@@ -6,3 +6,4 @@ export * from './openIDConnect';
 export * from './refresh';
 export * from './auth0';
 export * from './laravel-jwt';
+export * from './cognito';

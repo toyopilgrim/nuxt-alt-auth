@@ -1,9 +1,9 @@
 {
-    "name": "@nuxt-alt/auth",
-    "version": "2.6.1",
-    "description": "An alternative module to @nuxtjs/auth",
-    "homepage": "https://github.com/nuxt-alt/auth",
-    "author": "Denoder",
+    "name": "@toyopilgrim/nuxt-alt-auth",
+    "version": "0.1.0",
+    "description": "An alternative module to @nuxtjs/auth. This fork includes aws-cognito scheme.",
+    "homepage": "https://github.com/toyopilgrim/nuxt-alt-auth",
+    "author": "toyopilgrim",
     "keywords": [
         "nuxt",
         "nuxtjs",
@@ -34,8 +34,10 @@
         "prepack": "unbuild"
     },
     "dependencies": {
+        "@aws-amplify/auth": "5.6.5",
+        "@aws-amplify/core": "5.8.5",
         "@nuxt-alt/http": "latest",
-        "@nuxt/kit": ">=3.4.0",
+        "@nuxt/kit": ">=3.7.4",
         "@pinia/nuxt": "latest",
         "body-parser": "latest",
         "cookie-es": "latest",
@@ -47,13 +49,13 @@
     },
     "devDependencies": {
         "@types/node": "^18",
-        "nuxt": ">=3.4.0",
+        "nuxt": ">=3.7.4",
         "unbuild": "latest"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nuxt-alt/auth.git",
-        "directory": "@nuxt-alt/auth"
+        "url": "git+https://github.com/toyopilgrim/nuxt-alt-auth.git",
+        "directory": "@toyopilgrim/nuxt-alt-auth"
     },
     "bugs": {
         "url": "https://github.com/nuxt-alt/auth/issues"

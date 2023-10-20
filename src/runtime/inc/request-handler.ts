@@ -1,13 +1,14 @@
+import { CognitoAuthScheme } from '..';
 import type { TokenableScheme, RefreshableScheme } from '../../types';
 import { ExpiredAuthSessionError } from './expired-auth-session-error';
 import { FetchInstance, FetchConfig } from '@refactorjs/ofetch';
 
 export class RequestHandler {
-    scheme: TokenableScheme | RefreshableScheme;
+    scheme: TokenableScheme | RefreshableScheme | CognitoAuthScheme;
     http: FetchInstance;
     interceptor: number | undefined | null;
 
-    constructor(scheme: TokenableScheme | RefreshableScheme, http: FetchInstance) {
+    constructor(scheme: TokenableScheme | RefreshableScheme | CognitoAuthScheme, http: FetchInstance) {
         this.scheme = scheme;
         this.http = http;
         this.interceptor = null;

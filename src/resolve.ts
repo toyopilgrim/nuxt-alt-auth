@@ -14,6 +14,7 @@ export const BuiltinSchemes = {
     refresh: 'RefreshScheme',
     laravelJWT: 'LaravelJWTScheme',
     auth0: 'Auth0Scheme',
+    cognito: 'CognitoAuthScheme'
 };
 
 export interface ImportOptions {

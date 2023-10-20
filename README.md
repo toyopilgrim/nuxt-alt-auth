@@ -2,28 +2,41 @@
 
 ## Info
 
-This module is meant as an alternative to @nuxtjs/auth, except this is for nuxt3 only with no backwards compatibility support. This will only work with pinia, I had originally had it work with vuex, but since that is in maintenece mode, I decided to switch to pinia. If you find any bugs please do tell me, I'm still working on this.
+This module is meant as an alternative to @nuxtjs/auth with a focus on support for Amazon Cognito, forked from [nuxt-alt/auth](https://github.com/nuxt-alt/auth).
 
 ## Setup
 
-1. Add `@nuxt-alt/auth` `@pinia/nuxt` `pinia` and `@nuxt-alt/http` dependency to your project
+1. Add `@toyopilgrim/nuxt-alt-auth` `@pinia/nuxt` `pinia` and `@nuxt-alt/http` dependency to your project
 
 ```bash
-yarn add @nuxt-alt/auth @nuxt-alt/http @pinia/nuxt pinia
+yarn add @toyopilgrim/nuxt-alt-auth @nuxt-alt/http @pinia/nuxt pinia
 ```
 
-2. Add `@nuxt-alt/auth` and `@pinia/nuxt` to the `modules` section of `nuxt.config.ts`
+2. Add `@toyopilgrim/nuxt-alt-auth` and `@pinia/nuxt` to the `modules` section of `nuxt.config.ts`
 
 **Note:** you dont need to specify `@nuxt-alt/http`, it will automatically be added but if you want to manually add it, make sure it is below the auth module (and above the proxy module if you are using it)
 
 ```ts
 export default defineNuxtConfig({
     modules: [
-        '@nuxt-alt/auth',
+        '@toyopilgrim/nuxt-alt-auth',
         '@pinia/nuxt'
     ],
     auth: {
-        /* module options */
+        /* cognit options */
+        strategies: {
+            cognito: {
+                scheme: "cognito",
+                credentials: {
+                    userPoolId: process.env.COGNITO_USERPOOL_ID,
+                    userPoolWebClientId: process.env.AUTH_CLIENT_ID,
+                    region: process.env.COGNITO_REGION
+                },
+                endpoints: {
+                    user: false
+                }
+            }
+        }
     }
 });
 

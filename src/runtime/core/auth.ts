@@ -113,7 +113,8 @@ export class Auth {
             if (process.client && this.options.watchLoggedIn) {
                 this.$storage.watchState('loggedIn', (loggedIn: boolean) => {
                     if (this.$state.loggedIn === loggedIn) return;
-                    if (hasOwn(useRoute().meta, 'auth') && !routeMeta(useRoute(), 'auth', false)) {
+                    // hasOwn(useRoute().meta, 'auth')  'auth' is not registered even if it enabled.
+                    if (!routeMeta(useRoute(), 'auth', false)) {
                         this.redirect(loggedIn ? 'home' : 'logout');
                     }
                 });
